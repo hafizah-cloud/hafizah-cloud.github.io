@@ -490,6 +490,31 @@
       font-size: 4rem;
     }
 
+    .project-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-visual img {
+      transform: scale(1.025);
+    }
+
+    .project-visual.has-screenshot::before {
+      display: none;
+    }
+
+    .project-visual.has-screenshot::after {
+      inset: 0;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: linear-gradient(to bottom, transparent 62%, rgba(39, 20, 64, 0.22));
+      pointer-events: none;
+    }
+
     .project-visual::before,
     .project-visual::after {
       position: absolute;
@@ -568,6 +593,19 @@
 
     .project-link:hover {
       color: var(--deep-purple);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 20px;
+    }
+
+    .project-link-primary {
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--soft-lilac);
     }
 
     .contact-card {
@@ -900,41 +938,56 @@
 
       <div class="project-grid">
         <article class="project-card">
-          <div class="project-visual">
-            <i class="bi bi-window-stack"></i>
+          <div class="project-visual has-screenshot">
+            <img
+              src="https://raw.githubusercontent.com/hafizah-cloud/flask-personal-website/main/flask-homepage-preview.png"
+              alt="Preview of Hafizah's Flask portfolio homepage"
+              loading="lazy">
           </div>
 
           <div class="project-content">
             <span class="project-tag">Web Development</span>
-            <h3>Flask Personal Website</h3>
+            <h3>Secure Flask Portfolio &amp; Guestbook</h3>
 
             <p>
-              A personal website created using Python, Flask, HTML and CSS.
-              This project helped me practise building a web application,
-              organising files and managing source code with GitHub.
+              A responsive Flask portfolio with secure login, an authenticated
+              guestbook and SQLite data storage. It demonstrates server-side
+              validation, password hashing and automated testing.
             </p>
 
             <div class="project-languages">
               <span>Python</span>
               <span>Flask</span>
+              <span>SQLite</span>
               <span>HTML</span>
-              <span>CSS</span>
             </div>
 
-            <a class="project-link"
-               href="https://github.com/hafizah-cloud/flask-personal-website"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="bi bi-github"></i>
-              View project and source code
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
+            <div class="project-links">
+              <a class="project-link project-link-primary"
+                 href="https://fxzvh.pythonanywhere.com/"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <i class="bi bi-box-arrow-up-right"></i>
+                View live project
+              </a>
+
+              <a class="project-link"
+                 href="https://github.com/hafizah-cloud/flask-personal-website"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <i class="bi bi-github"></i>
+                Source code
+              </a>
+            </div>
           </div>
         </article>
 
         <article class="project-card">
-          <div class="project-visual">
-            <i class="bi bi-terminal"></i>
+          <div class="project-visual has-screenshot">
+            <img
+              src="https://raw.githubusercontent.com/hafizah-cloud/linux-support-toolkit/main/linux-toolkit-output.png"
+              alt="Verified terminal output from the Linux Support Toolkit"
+              loading="lazy">
           </div>
 
           <div class="project-content">
@@ -953,14 +1006,16 @@
               <span>Linux</span>
             </div>
 
-            <a class="project-link"
-               href="https://github.com/hafizah-cloud/linux-support-toolkit"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="bi bi-github"></i>
-              View project and source code
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
+            <div class="project-links">
+              <a class="project-link project-link-primary"
+                 href="https://github.com/hafizah-cloud/linux-support-toolkit"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <i class="bi bi-github"></i>
+                View project and source code
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
           </div>
         </article>
       </div>
