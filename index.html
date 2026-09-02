@@ -457,7 +457,7 @@
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 26px;
     }
 
@@ -501,6 +501,10 @@
 
     .project-card:hover .project-visual img {
       transform: scale(1.025);
+    }
+
+    .project-visual.network-dashboard-preview img {
+      object-position: center 20%;
     }
 
     .project-visual.has-screenshot::before {
@@ -1010,6 +1014,44 @@
             <div class="project-links">
               <a class="project-link project-link-primary"
                  href="https://github.com/hafizah-cloud/linux-support-toolkit"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <i class="bi bi-github"></i>
+                View project and source code
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual has-screenshot network-dashboard-preview">
+            <img
+              src="https://raw.githubusercontent.com/hafizah-cloud/web-network-scanner-dashboard/main/screenshots/network-dashboard-evidence.png"
+              alt="Web-based Network Scanner Dashboard displaying Nmap results"
+              loading="lazy">
+          </div>
+
+          <div class="project-content">
+            <span class="project-tag">Linux Networking</span>
+            <h3>Web-Based Network Scanner Dashboard</h3>
+
+            <p>
+              A Linux project that schedules Nmap host-discovery scans and
+              displays the latest authorised network results through a safer
+              Apache and PHP dashboard.
+            </p>
+
+            <div class="project-languages">
+              <span>Bash</span>
+              <span>Nmap</span>
+              <span>PHP</span>
+              <span>Apache</span>
+            </div>
+
+            <div class="project-links">
+              <a class="project-link project-link-primary"
+                 href="https://github.com/hafizah-cloud/web-network-scanner-dashboard"
                  target="_blank"
                  rel="noopener noreferrer">
                 <i class="bi bi-github"></i>
