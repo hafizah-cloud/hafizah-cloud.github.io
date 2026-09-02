@@ -3,9 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Portfolio of Hafizah Rahim, an aspiring Cloud Support and Cloud Operations professional based in Singapore.">
+
   <title>Hafizah Rahim | Cloud Support Portfolio</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
   <style>
+    :root {
+      --deep-purple: #26133f;
+      --purple: #6f3cc3;
+      --bright-purple: #8c5de1;
+      --lilac: #cdb3ff;
+      --soft-lilac: #eee5ff;
+      --pale-lavender: #f7f3ff;
+      --pink: #e7a9dc;
+      --white: #ffffff;
+      --text: #2c2140;
+      --muted: #6f6581;
+      --border: rgba(111, 60, 195, 0.15);
+      --shadow: 0 18px 50px rgba(66, 32, 110, 0.12);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,209 +42,638 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 85px;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #2d2440;
-      background-color: #faf8ff;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 5% 25%, rgba(205, 179, 255, 0.35), transparent 27%),
+        radial-gradient(circle at 95% 65%, rgba(231, 169, 220, 0.22), transparent 25%),
+        var(--pale-lavender);
+      font-family: "DM Sans", sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    h1,
+    h2,
+    h3,
+    .logo {
+      font-family: "Manrope", sans-serif;
+    }
+
+    a {
+      color: inherit;
     }
 
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 8%;
-      background-color: #24163d;
-      color: white;
+      min-height: 76px;
+      padding: 0 7%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(38, 19, 63, 0.93);
+      color: var(--white);
+      backdrop-filter: blur(16px);
     }
 
-    nav .logo {
-      font-size: 1.2rem;
-      font-weight: bold;
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .logo span {
+      color: var(--lilac);
     }
 
     nav ul {
       display: flex;
-      gap: 22px;
+      gap: 28px;
+      align-items: center;
       list-style: none;
     }
 
     nav a {
-      color: white;
+      position: relative;
+      font-size: 0.95rem;
+      font-weight: 600;
       text-decoration: none;
     }
 
-    nav a:hover {
-      color: #d6b8ff;
+    nav a::after {
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 2px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--lilac), var(--pink));
+      content: "";
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
     }
 
-    header {
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .hero {
+      position: relative;
       display: flex;
-      min-height: 85vh;
+      min-height: calc(100vh - 76px);
       justify-content: center;
       align-items: center;
-      gap: 60px;
-      padding: 70px 10%;
-      background: linear-gradient(135deg, #24163d, #6941a5);
-      color: white;
+      gap: 80px;
+      overflow: hidden;
+      padding: 85px 9%;
+      background:
+        radial-gradient(circle at 22% 45%, rgba(188, 146, 255, 0.28), transparent 25%),
+        radial-gradient(circle at 84% 20%, rgba(232, 151, 218, 0.18), transparent 25%),
+        linear-gradient(135deg, #211136 0%, #4c287b 55%, #7348b5 100%);
+      color: var(--white);
     }
 
-    header img {
-      width: 230px;
-      height: 230px;
+    .hero::before {
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
       border-radius: 50%;
-      border: 6px solid #d6b8ff;
+      content: "";
+      box-shadow:
+        0 0 80px rgba(207, 173, 255, 0.18),
+        inset 0 0 80px rgba(207, 173, 255, 0.08);
+    }
+
+    .hero::after {
+      position: absolute;
+      bottom: -180px;
+      left: -140px;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: rgba(193, 154, 255, 0.1);
+      content: "";
+      filter: blur(5px);
+    }
+
+    .profile-wrap {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .profile-wrap::before {
+      position: absolute;
+      inset: -22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--lilac), var(--pink));
+      content: "";
+      opacity: 0.3;
+      filter: blur(26px);
+    }
+
+    .profile-image {
+      position: relative;
+      width: 270px;
+      height: 270px;
+      border: 6px solid rgba(255, 255, 255, 0.88);
+      border-radius: 50%;
       object-fit: cover;
+      box-shadow: 0 25px 70px rgba(14, 5, 29, 0.42);
     }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 8px;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 670px;
     }
 
-    header h2 {
-      color: #d6b8ff;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
       margin-bottom: 18px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.09);
+      color: #efe5ff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
     }
 
-    header p {
-      max-width: 600px;
-      margin-bottom: 25px;
-      font-size: 1.05rem;
+    .eyebrow i {
+      color: var(--pink);
+    }
+
+    .hero h1 {
+      margin-bottom: 8px;
+      font-size: clamp(2.7rem, 5vw, 4.8rem);
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+
+    .hero h2 {
+      margin-bottom: 22px;
+      background: linear-gradient(90deg, #e4d0ff, #f0b9e5);
+      background-clip: text;
+      color: transparent;
+      font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin-bottom: 30px;
+      color: #eee8f6;
+      font-size: 1.08rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
     .button {
-      display: inline-block;
-      margin: 6px 8px 6px 0;
-      padding: 11px 20px;
-      border-radius: 8px;
-      background-color: #ffffff;
-      color: #4c267f;
-      font-weight: bold;
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      gap: 9px;
+      justify-content: center;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      font-weight: 700;
       text-decoration: none;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
     }
 
     .button:hover {
-      background-color: #d6b8ff;
+      transform: translateY(-3px);
     }
 
-    section {
-      max-width: 1100px;
+    .button-primary {
+      background: linear-gradient(135deg, #efe3ff, #ffffff);
+      color: #4b237d;
+      box-shadow: 0 10px 30px rgba(17, 5, 34, 0.22);
+    }
+
+    .button-secondary {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+    }
+
+    .section {
+      position: relative;
+      max-width: 1180px;
       margin: auto;
-      padding: 75px 8%;
+      padding: 95px 6%;
     }
 
-    section h2 {
-      margin-bottom: 25px;
-      color: #4c267f;
-      font-size: 2rem;
+    .section-heading {
+      max-width: 670px;
+      margin: 0 auto 48px;
       text-align: center;
     }
 
-    .about-text {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
+    .section-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--purple);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
     }
 
-    .experience-card,
-    .project-card {
-      padding: 25px;
-      border-radius: 12px;
-      background-color: white;
-      box-shadow: 0 4px 18px rgba(76, 38, 127, 0.12);
+    .section-heading h2 {
+      margin-bottom: 12px;
+      color: var(--deep-purple);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: -1px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .about-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      padding: 42px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.83);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .about-card p {
+      color: #584f68;
+    }
+
+    .about-point {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .about-point:last-child {
+      margin-bottom: 0;
+    }
+
+    .icon-box {
+      display: inline-flex;
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--soft-lilac), #f9e8f7);
+      color: var(--purple);
+      font-size: 1.2rem;
+    }
+
+    .about-point h3 {
+      margin-bottom: 3px;
+      color: var(--deep-purple);
+      font-size: 1rem;
+    }
+
+    .experience-grid {
+      display: grid;
+      gap: 24px;
     }
 
     .experience-card {
-      margin-bottom: 22px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 24px;
+      padding: 34px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
-    .experience-card h3,
-    .project-card h3 {
-      color: #4c267f;
-      margin-bottom: 8px;
+    .experience-card:hover,
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 60px rgba(66, 32, 110, 0.17);
+    }
+
+    .experience-icon {
+      display: flex;
+      width: 70px;
+      height: 70px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--purple), #9a6ce6);
+      color: var(--white);
+      font-size: 1.7rem;
+      box-shadow: 0 12px 25px rgba(111, 60, 195, 0.25);
+    }
+
+    .experience-card h3 {
+      margin-bottom: 4px;
+      color: var(--deep-purple);
+      font-size: 1.25rem;
+    }
+
+    .experience-meta {
+      margin-bottom: 14px;
+      color: var(--purple);
+      font-weight: 700;
     }
 
     .experience-card ul {
-      margin: 12px 0 0 22px;
+      margin-left: 20px;
+      color: #5b526a;
     }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 16px;
     }
 
     .skill {
-      padding: 10px 17px;
-      border-radius: 20px;
-      background-color: #eadcff;
-      color: #3c1d66;
-      font-weight: bold;
+      display: flex;
+      min-height: 72px;
+      align-items: center;
+      gap: 13px;
+      padding: 17px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.88);
+      color: #463655;
+      font-weight: 700;
+      box-shadow: 0 8px 25px rgba(66, 32, 110, 0.07);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
     }
 
-    .projects {
+    .skill:hover {
+      border-color: rgba(111, 60, 195, 0.42);
+      transform: translateY(-3px);
+    }
+
+    .skill i {
+      display: flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 11px;
+      background: var(--soft-lilac);
+      color: var(--purple);
+      font-size: 1.1rem;
+    }
+
+    .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .project-visual {
+      position: relative;
+      display: flex;
+      height: 190px;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 75% 15%, rgba(242, 177, 226, 0.45), transparent 32%),
+        linear-gradient(135deg, #3c1e62, #7144b4);
+      color: var(--white);
+    }
+
+    .project-visual i {
+      position: relative;
+      z-index: 2;
+      font-size: 4rem;
+    }
+
+    .project-visual::before,
+    .project-visual::after {
+      position: absolute;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .project-visual::before {
+      top: -45px;
+      left: -30px;
+      width: 145px;
+      height: 145px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .project-visual::after {
+      right: -25px;
+      bottom: -60px;
+      width: 180px;
+      height: 180px;
+      background: rgba(219, 181, 255, 0.11);
+    }
+
+    .project-content {
+      padding: 28px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 11px;
+      border-radius: 50px;
+      background: var(--soft-lilac);
+      color: var(--purple);
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: var(--deep-purple);
+      font-size: 1.3rem;
     }
 
     .project-card p {
-      margin: 10px 0 18px;
+      margin-bottom: 18px;
+      color: #5b526a;
     }
 
-    .project-card a {
-      color: #5c2c91;
-      font-weight: bold;
+    .project-languages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 21px;
+    }
+
+    .project-languages span {
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: #f3eefb;
+      color: #5c4475;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--purple);
+      font-weight: 800;
       text-decoration: none;
     }
 
-    .project-card a:hover {
-      text-decoration: underline;
+    .project-link:hover {
+      color: var(--deep-purple);
     }
 
-    #contact {
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      padding: 60px 35px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(235, 170, 222, 0.3), transparent 30%),
+        linear-gradient(135deg, #271440, #66409b);
+      color: var(--white);
       text-align: center;
+      box-shadow: 0 25px 70px rgba(50, 23, 83, 0.23);
+    }
+
+    .contact-card h2 {
+      margin-bottom: 13px;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+
+    .contact-card p {
+      max-width: 610px;
+      margin: 0 auto 27px;
+      color: #eee7f6;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
     }
 
     footer {
-      padding: 25px;
-      background-color: #24163d;
-      color: white;
+      padding: 30px 20px;
+      color: var(--muted);
       text-align: center;
     }
 
-    @media (max-width: 750px) {
+    footer i {
+      color: var(--purple);
+    }
+
+    @media (max-width: 850px) {
       nav {
-        flex-direction: column;
-        gap: 12px;
+        padding: 14px 5%;
       }
 
       nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
+        display: none;
       }
 
-      header {
+      .hero {
+        min-height: auto;
         flex-direction: column;
-        gap: 30px;
+        gap: 40px;
+        padding: 75px 7%;
         text-align: center;
       }
 
-      header h1 {
-        font-size: 2.3rem;
+      .profile-image {
+        width: 220px;
+        height: 220px;
       }
 
-      header img {
-        width: 190px;
-        height: 190px;
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .about-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 72px 5%;
+      }
+
+      .experience-card {
+        grid-template-columns: 1fr;
+        padding: 26px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skill {
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .contact-card {
+        padding: 45px 22px;
       }
     }
   </style>
@@ -224,7 +681,7 @@
 
 <body>
   <nav>
-    <div class="logo">Hafizah Rahim</div>
+    <div class="logo">Hafizah<span>.</span></div>
 
     <ul>
       <li><a href="#about">About</a></li>
@@ -235,163 +692,320 @@
     </ul>
   </nav>
 
-  <header>
-    <img src="https://github.com/hafizah-cloud.png"
-         alt="Profile picture of Hafizah Rahim">
+  <header class="hero">
+    <div class="profile-wrap">
+      <img class="profile-image"
+           src="https://github.com/hafizah-cloud.png"
+           alt="Profile picture of Hafizah Rahim">
+    </div>
 
-    <div>
-      <p>Hello, I’m</p>
+    <div class="hero-content">
+      <div class="eyebrow">
+        <i class="bi bi-geo-alt-fill"></i>
+        Based in Singapore
+      </div>
+
       <h1>Hafizah Rahim</h1>
       <h2>Aspiring Cloud Support Professional</h2>
 
-      <p>
+      <p class="hero-description">
         I am transitioning into the technology industry and developing
         practical skills in cloud computing, Linux, troubleshooting and
         DevOps tools. I am interested in starting a career in Cloud Support
         or Cloud Operations.
       </p>
 
-      <a class="button"
-         href="https://github.com/hafizah-cloud"
-         target="_blank">GitHub</a>
+      <div class="hero-buttons">
+        <a class="button button-primary"
+           href="#projects">
+          <i class="bi bi-grid"></i>
+          View My Projects
+        </a>
 
-      <a class="button"
-         href="https://www.linkedin.com/in/hafizah-rahim-427a16327/"
-         target="_blank">LinkedIn</a>
+        <a class="button button-secondary"
+           href="https://github.com/hafizah-cloud"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="bi bi-github"></i>
+          GitHub
+        </a>
+
+        <a class="button button-secondary"
+           href="https://www.linkedin.com/in/hafizah-rahim-427a16327/"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="bi bi-linkedin"></i>
+          LinkedIn
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section id="about">
-      <h2>About Me</h2>
-
-      <div class="about-text">
-        <p>
-          I am based in Singapore and currently completing the Generation
-          Singapore Cloud Support and DevOps programme. Before making this
-          career transition, I gained experience in technical support,
-          software installation, Windows installation, device setup and
-          user training.
-        </p>
-
-        <br>
+    <section class="section" id="about">
+      <div class="section-heading">
+        <span class="section-label">My Journey</span>
+        <h2>About Me</h2>
 
         <p>
-          I enjoy learning how systems work and finding practical solutions
-          to technical problems. My goal is to apply my previous support
-          experience together with my new cloud and DevOps skills in an
-          entry-level Cloud Support or Cloud Operations role.
+          Combining my previous technical support experience with new
+          cloud and DevOps skills.
         </p>
       </div>
-    </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <div class="experience-card">
-        <h3>Cloud Support and DevOps Programme</h3>
-        <p><strong>Generation Singapore | 2026</strong></p>
-
-        <ul>
-          <li>Developing practical skills in Linux, cloud technologies and troubleshooting.</li>
-          <li>Using Git and GitHub to manage and document technical projects.</li>
-          <li>Learning Python, Flask, Docker, Kubernetes and Microsoft Azure.</li>
-          <li>Working on individual and team-based technical activities.</li>
-        </ul>
-      </div>
-
-      <div class="experience-card">
-        <h3>Previous IT Support Experience</h3>
-        <p><strong>Avalanche Mechtronics</strong></p>
-
-        <ul>
-          <li>Installed Windows operating systems and software.</li>
-          <li>Set up devices and connected them to the company domain.</li>
-          <li>Provided user support and basic troubleshooting.</li>
-          <li>Guided and trained users on systems and applications.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-
-      <div class="skills">
-        <span class="skill">Linux</span>
-        <span class="skill">Git</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">Python</span>
-        <span class="skill">Flask</span>
-        <span class="skill">Docker</span>
-        <span class="skill">Kubernetes</span>
-        <span class="skill">Microsoft Azure</span>
-        <span class="skill">Technical Support</span>
-        <span class="skill">Troubleshooting</span>
-        <span class="skill">Communication</span>
-        <span class="skill">Teamwork</span>
-        <span class="skill">Problem-Solving</span>
-        <span class="skill">Adaptability</span>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <div class="projects">
-        <article class="project-card">
-          <h3>Flask Personal Website</h3>
-
+      <div class="about-card">
+        <div>
           <p>
-            A personal website created using Python, Flask, HTML and CSS.
-            This project helped me practise building a web application,
-            organising files and managing source code with GitHub.
+            I am currently completing the Generation Singapore Cloud Support
+            and DevOps programme. Before making this career transition, I
+            gained experience in technical support, Windows and software
+            installation, device setup and user training.
           </p>
 
-          <p><strong>Languages:</strong> Python, HTML and CSS</p>
+          <br>
 
-          <a href="https://github.com/hafizah-cloud/flask-personal-website"
-             target="_blank">View project and source code →</a>
+          <p>
+            I enjoy understanding how systems work and finding practical
+            solutions to technical problems. My goal is to begin an
+            entry-level career in Cloud Support or Cloud Operations.
+          </p>
+        </div>
+
+        <div>
+          <div class="about-point">
+            <span class="icon-box">
+              <i class="bi bi-cloud-check"></i>
+            </span>
+
+            <div>
+              <h3>Career Focus</h3>
+              <p>Cloud Support, Cloud Operations and IT Support</p>
+            </div>
+          </div>
+
+          <div class="about-point">
+            <span class="icon-box">
+              <i class="bi bi-lightbulb"></i>
+            </span>
+
+            <div>
+              <h3>What Motivates Me</h3>
+              <p>Learning new technologies and solving practical problems</p>
+            </div>
+          </div>
+
+          <div class="about-point">
+            <span class="icon-box">
+              <i class="bi bi-people"></i>
+            </span>
+
+            <div>
+              <h3>What I Bring</h3>
+              <p>Support experience, communication and willingness to learn</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-heading">
+        <span class="section-label">Background</span>
+        <h2>Experience</h2>
+
+        <p>
+          Building on earlier IT support experience through practical
+          cloud and DevOps training.
+        </p>
+      </div>
+
+      <div class="experience-grid">
+        <article class="experience-card">
+          <div class="experience-icon">
+            <i class="bi bi-cloud"></i>
+          </div>
+
+          <div>
+            <h3>Cloud Support and DevOps Programme</h3>
+            <p class="experience-meta">Generation Singapore | 2026</p>
+
+            <ul>
+              <li>Developing practical skills in Linux, cloud technologies and troubleshooting.</li>
+              <li>Using Git and GitHub to manage and document technical projects.</li>
+              <li>Learning Python, Flask, Docker, Kubernetes and Microsoft Azure.</li>
+              <li>Working on individual and team-based technical activities.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience-card">
+          <div class="experience-icon">
+            <i class="bi bi-pc-display"></i>
+          </div>
+
+          <div>
+            <h3>Previous IT Support Experience</h3>
+            <p class="experience-meta">Avalanche Mechtronics</p>
+
+            <ul>
+              <li>Installed Windows operating systems and software.</li>
+              <li>Set up devices and connected them to the company domain.</li>
+              <li>Provided user support and basic troubleshooting.</li>
+              <li>Guided and trained users on systems and applications.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-heading">
+        <span class="section-label">What I’m Learning</span>
+        <h2>Skills</h2>
+
+        <p>
+          Technical and transferable skills developed through training
+          and previous work experience.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill"><i class="bi bi-terminal"></i>Linux</div>
+        <div class="skill"><i class="bi bi-git"></i>Git</div>
+        <div class="skill"><i class="bi bi-github"></i>GitHub</div>
+        <div class="skill"><i class="bi bi-code-slash"></i>Python</div>
+        <div class="skill"><i class="bi bi-window"></i>Flask</div>
+        <div class="skill"><i class="bi bi-box"></i>Docker</div>
+        <div class="skill"><i class="bi bi-diagram-3"></i>Kubernetes</div>
+        <div class="skill"><i class="bi bi-cloud"></i>Microsoft Azure</div>
+        <div class="skill"><i class="bi bi-headset"></i>Technical Support</div>
+        <div class="skill"><i class="bi bi-tools"></i>Troubleshooting</div>
+        <div class="skill"><i class="bi bi-chat-dots"></i>Communication</div>
+        <div class="skill"><i class="bi bi-people"></i>Teamwork</div>
+        <div class="skill"><i class="bi bi-puzzle"></i>Problem-Solving</div>
+        <div class="skill"><i class="bi bi-arrow-repeat"></i>Adaptability</div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading">
+        <span class="section-label">Practical Work</span>
+        <h2>Featured Projects</h2>
+
+        <p>
+          Projects that demonstrate how I have applied the technical
+          skills I am learning.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-visual">
+            <i class="bi bi-window-stack"></i>
+          </div>
+
+          <div class="project-content">
+            <span class="project-tag">Web Development</span>
+            <h3>Flask Personal Website</h3>
+
+            <p>
+              A personal website created using Python, Flask, HTML and CSS.
+              This project helped me practise building a web application,
+              organising files and managing source code with GitHub.
+            </p>
+
+            <div class="project-languages">
+              <span>Python</span>
+              <span>Flask</span>
+              <span>HTML</span>
+              <span>CSS</span>
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/hafizah-cloud/flask-personal-website"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="bi bi-github"></i>
+              View project and source code
+              <i class="bi bi-arrow-up-right"></i>
+            </a>
+          </div>
         </article>
 
         <article class="project-card">
-          <h3>Linux Support Toolkit</h3>
+          <div class="project-visual">
+            <i class="bi bi-terminal"></i>
+          </div>
 
-          <p>
-            A beginner-friendly collection of Bash scripts for Linux system
-            monitoring and troubleshooting. The toolkit helps users check
-            system information and identify common support issues.
-          </p>
+          <div class="project-content">
+            <span class="project-tag">Linux Support</span>
+            <h3>Linux Support Toolkit</h3>
 
-          <p><strong>Language:</strong> Bash/Shell</p>
+            <p>
+              A beginner-friendly collection of Bash scripts for Linux
+              system monitoring and troubleshooting. The toolkit helps
+              users check system information and identify common issues.
+            </p>
 
-          <a href="https://github.com/hafizah-cloud/linux-support-toolkit"
-             target="_blank">View project and source code →</a>
+            <div class="project-languages">
+              <span>Bash</span>
+              <span>Shell</span>
+              <span>Linux</span>
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/hafizah-cloud/linux-support-toolkit"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="bi bi-github"></i>
+              View project and source code
+              <i class="bi bi-arrow-up-right"></i>
+            </a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Let’s Connect</h2>
+    <section class="section" id="contact">
+      <div class="contact-card">
+        <span class="section-label" style="color: #e4d0ff;">
+          Let’s Connect
+        </span>
 
-      <p>
-        I am open to entry-level opportunities in Cloud Support,
-        Cloud Operations and IT Support.
-      </p>
+        <h2>Open to Entry-Level Opportunities</h2>
 
-      <br>
+        <p>
+          I am interested in opportunities where I can continue learning
+          and contribute in Cloud Support, Cloud Operations or IT Support.
+        </p>
 
-      <a class="button"
-         href="https://github.com/hafizah-cloud"
-         target="_blank">View My GitHub</a>
+        <div class="contact-links">
+          <a class="button button-primary"
+             href="https://www.linkedin.com/in/hafizah-rahim-427a16327/"
+             target="_blank"
+             rel="noopener noreferrer">
+            <i class="bi bi-linkedin"></i>
+            Connect on LinkedIn
+          </a>
 
-      <a class="button"
-         href="https://www.linkedin.com/in/hafizah-rahim-427a16327/"
-         target="_blank">Connect on LinkedIn</a>
+          <a class="button button-secondary"
+             href="https://github.com/hafizah-cloud"
+             target="_blank"
+             rel="noopener noreferrer">
+            <i class="bi bi-github"></i>
+            View My GitHub
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Hafizah Rahim | Cloud Support Portfolio</p>
+    <p>
+      © 2026 Hafizah Rahim
+      <i class="bi bi-stars"></i>
+      Cloud Support Portfolio
+    </p>
   </footer>
 </body>
 </html>
